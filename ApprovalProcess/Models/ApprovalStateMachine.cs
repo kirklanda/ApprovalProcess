@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ApprovalProcess.Models
 {
@@ -16,17 +17,37 @@ namespace ApprovalProcess.Models
     */
     public class ApprovalStateMachine
     {
-        public ApprovalStates State { get; set; }
+        private Dictionary<string, State> states = new Dictionary<string, State>();
+        private Dictionary<string, Transition> transitions = new Dictionary<string, Transition>();
 
-        public void Transition(ApprovalStates toState)
+        public State CurrentState { get; set; }
+
+        public void AddState(State state)
         {
-            // TODO: Generalise the rules for valid and invalid transitions between states
-            if(this.State == ApprovalStates.Initial && toState != ApprovalStates.Reviewed)
-            {
-                throw new InvalidOperationException("Must move from Initial state to Reviewed state");
-            }
+            this.states.TryAdd(state.Name, state);
+        }
 
-            this.State = toState;
+        public void AddTransition(Transition transition)
+        {
+            transitions.Add(transition.Name, transition);
+        }
+
+        public void Transition(string input)
+        {
+            if(transitions.TryGetValue(input, out Transition transition))
+            {
+                if(transition.From != this.CurrentState)
+                {
+                    throw new InvalidTransitionException("The transition " + transition.Name +
+                        " is invalid from " + CurrentState);
+                } else
+                {
+                    CurrentState = transition.To;
+                }
+            } else
+            {
+                throw new TransitionNotFoundException("Cannot find transition named " + input);
+            }
         }
     }
 }
