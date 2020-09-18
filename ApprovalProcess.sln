@@ -3,9 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApprovalProcess", "ApprovalProcess\ApprovalProcess.csproj", "{BE57673A-A684-4EDD-9458-972676579898}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApprovalProcess", "ApprovalProcess\ApprovalProcess.csproj", "{BE57673A-A684-4EDD-9458-972676579898}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApprovalProcessTests", "ApprovalProcessTests\ApprovalProcessTests.csproj", "{4E87047F-787B-41C7-B01D-9F01A83347AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApprovalProcessTests", "ApprovalProcessTests\ApprovalProcessTests.csproj", "{4E87047F-787B-41C7-B01D-9F01A83347AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApprovalProcessWebAPI", "ApprovalProcessWebAPI\ApprovalProcessWebAPI.csproj", "{FC3786D4-DE00-41CA-9775-D83E0EF16799}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BE57673A-A684-4EDD-9458-972676579898} = {BE57673A-A684-4EDD-9458-972676579898}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +26,10 @@ Global
 		{4E87047F-787B-41C7-B01D-9F01A83347AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E87047F-787B-41C7-B01D-9F01A83347AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E87047F-787B-41C7-B01D-9F01A83347AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC3786D4-DE00-41CA-9775-D83E0EF16799}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC3786D4-DE00-41CA-9775-D83E0EF16799}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC3786D4-DE00-41CA-9775-D83E0EF16799}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC3786D4-DE00-41CA-9775-D83E0EF16799}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

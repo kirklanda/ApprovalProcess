@@ -2,11 +2,19 @@
 {
     public class State
     {
+        public string Name { get; set; }
+        public bool TerminalState { get; }
+
         public State(string name)
         {
-            this.Name = name;
+            Name = name;
+            TerminalState = false;
         }
 
-        public string Name { get; set; }
+        public State(string name, bool terminalState)
+        {
+            Name = name;
+            TerminalState = terminalState;
+        }
     }
 }

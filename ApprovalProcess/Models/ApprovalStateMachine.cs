@@ -21,6 +21,8 @@ namespace ApprovalProcess.Models
         private Dictionary<string, Transition> transitions = new Dictionary<string, Transition>();
 
         public State CurrentState { get; set; }
+        public bool Terminated => CurrentState.TerminalState;
+ 
 
         public void AddState(State state)
         {
@@ -48,6 +50,21 @@ namespace ApprovalProcess.Models
             {
                 throw new TransitionNotFoundException("Cannot find transition named " + input);
             }
+        }
+
+        public List<string> PossibleTransitions()
+        {
+            List<string> possibleTransitions = new List<string>();
+
+            foreach(KeyValuePair<string, Transition> aTransition in transitions)
+            {
+                if(aTransition.Value.From == CurrentState)
+                {
+                    possibleTransitions.Add(aTransition.Value.Name);
+                }
+            }
+
+            return possibleTransitions;
         }
     }
 }
