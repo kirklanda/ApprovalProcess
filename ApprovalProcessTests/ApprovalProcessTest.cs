@@ -11,6 +11,7 @@ namespace ApprovalProcessTests
     public class Tests
     {
         private ApprovalStateMachine approvalWorkflow;
+        private MockApprovalAction approvalAction;
 
         [SetUp]
         public void Setup()
@@ -19,7 +20,7 @@ namespace ApprovalProcessTests
             // adding states and transitions.
             approvalWorkflow = new ApprovalStateMachine();
             State initialState = new State("Initial");
-            State reviewedState = new State("Reviewed");
+            State reviewedState = new State("Reviewed");           
             State approvedState = new State("Approved");
             State reviewerDeclinedState = new State("ReviewerDeclined", true);
             approvalWorkflow.AddState(initialState);
@@ -33,6 +34,10 @@ namespace ApprovalProcessTests
             approvalWorkflow.AddTransition(approverAccept);
             approvalWorkflow.AddTransition(reviewerDecline);
             approvalWorkflow.CurrentState = initialState;
+
+            approvalAction = new MockApprovalAction();
+            approvedState.AddAction(approvalAction);
+
         }
 
         [Test]
@@ -82,11 +87,17 @@ namespace ApprovalProcessTests
             Assert.True(expectedTransitions.SequenceEqual(possibleTransitions));
         }
 
-        // An Approval is for some 'thing'.  The core approval process must be able to reference
-        // the thing that it is approving and provide a way to deference the thing.  For example, 
-        // a reference to the approved entity could be a URL that can be followed to retrieve the
-        // entity as a resource.  There may be other deferencing schemes also.
-        // WHAT WOULD THE TEST BE?
-
+        // When the state machine enters a given state, e.g. Approved, it should fire a corresponding
+        // action.
+        [Test]
+        public void When_State_Machine_Reaches_Approved_State_An_Action_Is_Triggered()
+        {
+            // state machine should be set up in initial state
+            Assert.AreEqual(approvalWorkflow.CurrentState.Name, "Initial");
+            approvalWorkflow.Transition("ReviewerAccept");
+            approvalWorkflow.Transition("ApproverAccept");
+            Assert.AreEqual(approvalWorkflow.CurrentState.Name, "Approved");
+            Assert.IsTrue(approvalAction.IsFired);
+        }
     }
 }

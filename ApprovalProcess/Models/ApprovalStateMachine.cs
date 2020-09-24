@@ -3,14 +3,6 @@ using System.Collections.Generic;
 
 namespace ApprovalProcess.Models
 {
-    public enum ApprovalStates
-    {
-        Initial,
-        Reviewed,
-        Endorsed,
-        Approved
-    }
-
     /**
      * Maintains the state of an approval and the possible transitions between states.  For example, users can review, 
      * endorse and finally approve work in progress.  Once approval has occured further downstream processing can occur.
@@ -45,6 +37,7 @@ namespace ApprovalProcess.Models
                 } else
                 {
                     CurrentState = transition.To;
+                    CurrentState.ExecuteActions();
                 }
             } else
             {

@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApprovalProcess", "Approval
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApprovalProcessTests", "ApprovalProcessTests\ApprovalProcessTests.csproj", "{4E87047F-787B-41C7-B01D-9F01A83347AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApprovalProcessWebAPI", "ApprovalProcessWebAPI\ApprovalProcessWebAPI.csproj", "{FC3786D4-DE00-41CA-9775-D83E0EF16799}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApprovalProcessWebAPI", "ApprovalProcessWebAPI\ApprovalProcessWebAPI.csproj", "{FC3786D4-DE00-41CA-9775-D83E0EF16799}"
 	ProjectSection(ProjectDependencies) = postProject
 		{BE57673A-A684-4EDD-9458-972676579898} = {BE57673A-A684-4EDD-9458-972676579898}
 	EndProjectSection
