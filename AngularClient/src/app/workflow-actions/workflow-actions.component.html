@@ -1,0 +1,9 @@
+<h2>Workflow action</h2>
+<mat-form-field appearance="fill">
+  <mat-label>Approval Actions</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let transition of transitions" [value]="transition">
+      {{transition}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
