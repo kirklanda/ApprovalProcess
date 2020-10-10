@@ -33,6 +33,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AngularClient", "AngularCli
 		SlnRelativePath = "AngularClient\"
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApprovalProcessPersistence", "ApprovalProcessPersistence\ApprovalProcessPersistence.csproj", "{0DA9B2AE-196C-4E73-A648-1056249F725E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{BCC91C8B-A087-4512-86F6-6F547F704609}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCC91C8B-A087-4512-86F6-6F547F704609}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{BCC91C8B-A087-4512-86F6-6F547F704609}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{0DA9B2AE-196C-4E73-A648-1056249F725E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DA9B2AE-196C-4E73-A648-1056249F725E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DA9B2AE-196C-4E73-A648-1056249F725E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DA9B2AE-196C-4E73-A648-1056249F725E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
